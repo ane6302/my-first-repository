@@ -418,7 +418,7 @@ console.log('broooooom');
   <div class="notify-us-content">
     <div class="close-notify-popup">{% render 'icon-close' %}</div>
     <h2>{{ section.settings.notify_form_title }}</h2>
-    {% form 'contact',id:'notify-us-form' %}
+    <form method="post" action="/contact#notify-us-form" id="notify-us-form" accept-charset="UTF-8" class="contact-form">
     <div class="content-box">
       <div class="notify-content">
         <div class="form_actions flex direction-column">
@@ -457,7 +457,7 @@ console.log('broooooom');
         </div>
       </div>
     </div>
-    {% endform %}
+    </form>
   </div>
 </div>
 <div class="notify-us-success">
