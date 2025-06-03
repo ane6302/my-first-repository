@@ -418,9 +418,7 @@ console.log('broooooom');
   <div class="notify-us-content">
     <div class="close-notify-popup">{% render 'icon-close' %}</div>
     <h2>{{ section.settings.notify_form_title }}</h2>
-    <form method="post" action="/contact#notify-us-form" id="notify-us-form" accept-charset="UTF-8" class="contact-form">
-      <input type="hidden" name="form_type" value="contact">
-      <input type="hidden" name="utf8" value="✓">
+    {% form 'contact',id:'notify-us-form' %}
     <div class="content-box">
       <div class="notify-content">
         <div class="form_actions flex direction-column">
@@ -433,23 +431,7 @@ console.log('broooooom');
             <input id="form_email" type="email" name="contact[email]" required="" placeholder="{{ 'templates.contact.form.email' | t  }}" {% if customer %}value="{{ customer.email }}"{% endif %}>
           </div>
         </div>
-        <div class="form_actions flex direction-column">
-          <div class="input_group flex">
-            <label for="form_choices">{{ 'templates.contact.form.choose_one_more' | t  }}:</label>
-            <div class="checkbox">
-              <input id="form_choices1" type="checkbox" name="contact[choices]" value="Flexible Magnets for Retractable Screens">
-              <label for="form_choices1">Flexible Magnets for Retractable Screens</label>
-            </div>
-            <div class="checkbox">
-              <input id="form_choices2" type="checkbox" name="contact[choices]" value="Glass Decals for Glass/Storm Doors">
-              <label for="form_choices2">Glass Decals for Glass/Storm Doors</label>
-            </div>
-            <div class="checkbox">
-              <input id="form_choices3" type="checkbox" name="contact[choices]" value="New Design Launches">
-              <label for="form_choices3">New Design Launches</label>
-            </div>
-          </div>
-        </div>
+
         <div class="errors_div"></div>
         <div class="submit_btn btn button button--full-width button--primary"><span>{% if section.settings.notify_form_btn != blank %}{{ section.settings.notify_form_btn }}{% else %}Submit{% endif %}</span></div>
         <div class="popup-info">
@@ -459,7 +441,7 @@ console.log('broooooom');
         </div>
       </div>
     </div>
-    </form>
+    {% endform %}
   </div>
 </div>
 <div class="notify-us-success">
