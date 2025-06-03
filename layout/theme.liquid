@@ -419,6 +419,8 @@ console.log('broooooom');
     <div class="close-notify-popup">{% render 'icon-close' %}</div>
     <h2>{{ section.settings.notify_form_title }}</h2>
     <form method="post" action="/contact#notify-us-form" id="notify-us-form" accept-charset="UTF-8" class="contact-form">
+      <input type="hidden" name="form_type" value="contact">
+      <input type="hidden" name="utf8" value="✓">
     <div class="content-box">
       <div class="notify-content">
         <div class="form_actions flex direction-column">
