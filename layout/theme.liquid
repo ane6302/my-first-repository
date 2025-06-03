@@ -494,11 +494,11 @@ $(document).ready(function(){
       return;
     }
 
-    let choices = contact_form.find('[name="contact[choices]"]:checked');
-    if(choices.length == 0){
-      contact_form.find('.errors_div').html('<span class="error_text">{{ 'templates.contact.form.choose_atleast_one' | t }}</span>');
-      return;
-    }
+    // let choices = contact_form.find('[name="contact[choices]"]:checked');
+    // if(choices.length == 0){
+    //   contact_form.find('.errors_div').html('<span class="error_text">{{ 'templates.contact.form.choose_atleast_one' | t }}</span>');
+    //   return;
+    // }
     
     contact_form.find('.errors_div').html('');
     //alert('submitted');
