@@ -413,7 +413,7 @@ console.log('broooooom');
       }
 
     </style>
-    {{ 'contact-popup.css' | asset_url | stylesheet_tag: preload: true }}
+{{ 'contact-popup.css' | asset_url | stylesheet_tag: preload: true }}
 <div class="notify-us-popup active">
   <div class="notify-us-content">
     <div class="close-notify-popup">{% render 'icon-close' %}</div>
@@ -431,7 +431,23 @@ console.log('broooooom');
             <input id="form_email" type="email" name="contact[email]" required="" placeholder="{{ 'templates.contact.form.email' | t  }}" {% if customer %}value="{{ customer.email }}"{% endif %}>
           </div>
         </div>
-
+        <div class="form_actions flex direction-column">
+          <div class="input_group flex">
+            <label for="form_choices">{{ 'templates.contact.form.choose_one_more' | t  }}:</label>
+            <div class="checkbox">
+              <input id="form_choices1" type="checkbox" name="contact[choice_1]" value="Flexible Magnets for Retractable Screens">
+              <label for="form_choices1">Flexible Magnets for Retractable Screens</label>
+            </div>
+            <div class="checkbox">
+              <input id="form_choices2" type="checkbox" name="contact[choice_2]" value="Glass Decals for Glass/Storm Doors">
+              <label for="form_choices2">Glass Decals for Glass/Storm Doors</label>
+            </div>
+            <div class="checkbox">
+              <input id="form_choices3" type="checkbox" name="contact[choice_3]" value="New Design Launches">
+              <label for="form_choices3">New Design Launches</label>
+            </div>
+          </div>
+        </div>
         <div class="errors_div"></div>
         <div class="submit_btn btn button button--full-width button--primary"><span>{% if section.settings.notify_form_btn != blank %}{{ section.settings.notify_form_btn }}{% else %}Submit{% endif %}</span></div>
         <div class="popup-info">
@@ -494,15 +510,15 @@ $(document).ready(function(){
       return;
     }
 
-    // let choices = contact_form.find('[name="contact[choices]"]:checked');
-    // if(choices.length == 0){
-    //   contact_form.find('.errors_div').html('<span class="error_text">{{ 'templates.contact.form.choose_atleast_one' | t }}</span>');
-    //   return;
-    // }
+    let choices = contact_form.find('[name="contact[choice_1]"]:checked, [name="contact[choice_2]"]:checked, [name="contact[choice_3]"]:checked');
+    if(choices.length == 0){
+      contact_form.find('.errors_div').html('<span class="error_text">{{ 'templates.contact.form.choose_atleast_one' | t }}</span>');
+      return;
+    }
     
     contact_form.find('.errors_div').html('');
-    //alert('submitted');
-    submit_form(e);
+    alert('submitted');
+    //submit_form(e);
   });
   
   $('#notify-us-form [type="email"]').on("keydown", function(e) { 
@@ -560,6 +576,7 @@ $(document).ready(function(){
 });
 
 </script>
+
 <style>
   /* 26-02-2024 css start here */
 .notify-us-icon {
